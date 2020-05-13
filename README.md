@@ -19,4 +19,4 @@ An application that allows user to create a ride or share a ride by renting out 
   ### Features of the application
   
   * **Scalability** Auto scaling of docker-containers based on the traffic/requests.
-  * **High Availability** If a slave worker fails,a new slave worker is started. All the data is copied to the new slave. asynchronously
+  * **High Availability** If a slave worker fails,a new slave worker is started. All the data is copied to the new slave. asynchronously.
