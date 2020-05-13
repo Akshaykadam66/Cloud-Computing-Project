@@ -1,5 +1,6 @@
 ## Ride-Share 
 An application that allows user to create a ride or share a ride by renting out bike/cabs.\
+Hosted on Amazon AWS 
 **The user can perform the following tasks**
   * Creating a ride.                                                                                   
   * Sharing a already created ride.
