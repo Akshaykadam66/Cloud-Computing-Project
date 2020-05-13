@@ -1,0 +1,24 @@
+CREATE TABLE users
+(username varchar(50) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL Primary key,
+password varchar(60));
+
+CREATE TABLE ride 
+(username varchar(50),
+time timestamp,
+source varchar(80),
+destination varchar(80),
+rideid int NOT NULL AUTO_INCREMENT,
+PRIMARY KEY(rideid),
+Foreign Key(username) References users(username) On Delete Cascade);
+
+
+CREATE TABLE associated_riders
+(rideid int,
+ name varchar(50),
+ FOREIGN KEY(rideid) REFERENCES ride(rideid) ON DELETE CASCADE
+ FOREIGN KEY(name) REFERENCES users(username) ON DELETE CASCADE);
+
+
+
+
+
