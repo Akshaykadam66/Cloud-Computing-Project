@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+  ride_container:
+    build: .
+    image: rides:latest
+    container_name: ride_container
+    command: python ride_management.py
+    restart: always
+    ports:
+      - "8000:80"
+    links:
+      - ride_database
+    depends_on:
+      - ride_database
+
+  ride_database:
+    image: mysql:5.7
+    container_name: ride_database
+    ports: 
+      - "2221:2222"
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: cloud
+    volumes:
+      - ./sql:/docker-entrypoint-initdb.d/

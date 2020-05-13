@@ -1,0 +1,58 @@
+version: '3'
+
+services:
+  orchestrator:
+    build: .
+    image: orchestrator
+    container_name: orchestrator
+    command: sh -c "sleep 20 && python orchestrator_api.py"
+    ports:
+      - "80:80"
+    links:
+    - rmq
+    depends_on:
+    - rmq
+    restart: always
+    volumes:
+    - /var/run/docker.sock:/var/run/docker.sock
+
+ 
+  rmq:
+    image: rabbitmq:3.8.3-alpine
+    container_name: rmq
+
+  slave:
+    build: .
+    image: slave
+    container_name: slave
+    command: sh -c "sleep 24 && python slave_workers.py"
+    restart: on-failure
+    links:
+      - rmq
+    depends_on:
+      - rmq
+
+  slave_new:
+    build: .
+    image: slave_new
+    container_name: slave_new
+    command: sh -c "sleep 24 && python slave_workers.py"
+    restart: on-failure
+    links:
+      - rmq
+    depends_on:
+      - rmq
+ 
+  master:
+    build: ./master
+    image: master
+    container_name: master
+    command: sh -c "sleep 24 && python  master/master_worker.py"
+    restart: on-failure
+    links:
+      - rmq
+    depends_on:
+      - rmq
+    volumes:
+    - .:/cc_project  
+      

@@ -1,0 +1,28 @@
+
+Follow the following steps:
+
+1. Login to aws and launch ubuntu 3 instances(specify port 80 while creating the instances)
+
+2. In all of the 3 ubuntu instances install docker, follow the steps for installing of docker
+	to install docker :- 
+	1)sudo curl -L https://github.com/docker/compose/releases/download/1.21.2/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
+	2)sudo chmod +x /usr/local/bin/docker-compose
+	3)sudo apt update
+	4)sudo apt install docker.io
+	5)docker-compose --version
+
+
+3. Deploy the directories to the instances respectively. 
+
+4. set the load-balancer on aws this can be done using the AWS front-end use the following link to do it.
+    https://hackernoon.com/what-is-amazon-elastic-load-balancer-elb-16cdcedbd485
+
+5. open terminal on your local machine ssh into your instances.
+
+6. use the following command to build the docker containers
+   1) sudo docker-compose build
+
+7. use the following command to make the docker containers up
+   1) sudo docker-compose up
+
+8. when the containers are up, you can send the requests to the application this can done using POSTMAN.

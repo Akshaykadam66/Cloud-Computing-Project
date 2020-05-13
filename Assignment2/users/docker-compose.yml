@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+  users_container:
+    build: .
+    image: users:latest
+    container_name: users_container
+    command: python user_management.py
+    restart: always
+    ports:
+      - "8080:80"
+    links:
+      - users_database
+    depends_on:
+      - users_database
+
+  users_database:
+    image: mysql:5.7
+    container_name: users_database
+    ports: 
+      - "3331:3332"
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: cloud
+    volumes:
+      - ./sql:/docker-entrypoint-initdb.d/
