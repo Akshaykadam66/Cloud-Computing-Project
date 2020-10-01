@@ -12,7 +12,7 @@ Follow the following steps:
 	5)docker-compose --version
 
 
-3. Deploy the directories to the instances respectively. 
+3. Deploy the three directories of project directory to the three instances. 
 
 4. set the load-balancer on aws this can be done using the AWS front-end use the following link to do it.
     https://hackernoon.com/what-is-amazon-elastic-load-balancer-elb-16cdcedbd485
@@ -25,4 +25,4 @@ Follow the following steps:
 7. use the following command to make the docker containers up
    1) sudo docker-compose up
 
-8. when the containers are up, you can send the requests to the application this can done using POSTMAN.
+8. when the containers are up, you can send the requests to the application this can be done using POSTMAN.
