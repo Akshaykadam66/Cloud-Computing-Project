@@ -18,6 +18,7 @@ Hosted on Amazon AWS Cloud\
   
   * **Scalability** Auto scaling of docker-containers based on the traffic/requests.
   * **High Availability** If a slave worker fails,a new slave worker is started. All the data is copied to the new slave. asynchronously.
+  * **Fault Tolerence**
 
 >the future enhancement of this project can include features like online-mode payment. there no 
 >GUI developed for this particular project, the communication can happen through API testing tool
