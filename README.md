@@ -22,5 +22,5 @@ Hosted on Amazon AWS Cloud\
 
 >the future enhancement of this project can include features like online-mode payment. there no 
 >GUI developed for this particular project, the communication can happen through API testing tool
->postman the requests made to the application will gracfully handled by the API in the background!
+>postman the requests made to the application will be gracfully handled by the API in the background!
   
